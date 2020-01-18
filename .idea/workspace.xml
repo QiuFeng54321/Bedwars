@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d948d1d8-66a5-410a-8f22-3fa4377d86a3" name="Default Changelist" comment="" />
+    <list default="true" id="d948d1d8-66a5-410a-8f22-3fa4377d86a3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/config/BWMapConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/map/BWMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/map/BWTeam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/util/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/util/ShopName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/BWPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/BWPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/config/BWConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/config/BWConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/config/BWShopConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/config/BWShopConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/economy/Money.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/economy/Money.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/shop/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/shop/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/shop/ShopGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/shop/ShopGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/shop/ShopItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/shop/ShopItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/shop/activate/ItemActivateMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qiufeng/bedwars/shop/activate/ItemActivateMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +32,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Qiufeng54321 &lt;williamcraft@163.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -23,6 +48,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1WSai2XsttD0CDXF6kx5kTvohij" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -30,10 +58,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -70,17 +100,21 @@
       <screen x="0" y="27" width="1360" height="682" />
     </state>
     <state x="275" y="28" width="800" height="677" key="#Notifications/0.27.1360.682@0.27.1360.682" timestamp="1579331723835" />
-    <state x="804" y="71" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1579329865443">
+    <state x="804" y="71" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1579338289584">
       <screen x="0" y="27" width="1360" height="682" />
     </state>
-    <state x="804" y="71" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/0.27.1360.682@0.27.1360.682" timestamp="1579329865443" />
+    <state x="804" y="71" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/0.27.1360.682@0.27.1360.682" timestamp="1579338289584" />
+    <state x="256" y="27" width="837" height="682" key="CommitChangelistDialog2" timestamp="1579338556750">
+      <screen x="0" y="27" width="1360" height="682" />
+    </state>
+    <state x="256" y="27" width="837" height="682" key="CommitChangelistDialog2/0.27.1360.682@0.27.1360.682" timestamp="1579338556750" />
     <state x="298" y="109" width="744" height="518" key="FileChooserDialogImpl" timestamp="1579145681107">
       <screen x="0" y="27" width="1360" height="682" />
     </state>
     <state x="298" y="109" width="744" height="518" key="FileChooserDialogImpl/0.27.1360.682@0.27.1360.682" timestamp="1579145681107" />
-    <state x="163" y="27" width="1024" height="682" key="SettingsEditor" timestamp="1579145686573">
+    <state x="163" y="27" width="1024" height="682" key="SettingsEditor" timestamp="1579338458967">
       <screen x="0" y="27" width="1360" height="682" />
     </state>
-    <state x="163" y="27" width="1024" height="682" key="SettingsEditor/0.27.1360.682@0.27.1360.682" timestamp="1579145686573" />
+    <state x="163" y="27" width="1024" height="682" key="SettingsEditor/0.27.1360.682@0.27.1360.682" timestamp="1579338458967" />
   </component>
 </project>

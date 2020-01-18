@@ -1,6 +1,24 @@
+/*
+ * Copyright (C) 2020 Qiufeng54321
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package com.qiufeng.bedwars.economy;
 
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -61,6 +79,20 @@ public class Money {
     }
 
 
+    public static Money getMoney(ConfigurationSection section) {
+        return new Money(
+                section.getInt("iron", 0),
+                section.getInt("gold", 0),
+                section.getInt("emerald", 0),
+                section.getInt("diamond", 0)
+        );
+    }
+
+    /**
+     * Removes player money
+     *
+     * @param player the player to be removed money
+     */
     public void removeMoney(Player player) {
         player.getInventory().remove(new ItemStack(Material.IRON_INGOT, iron));
         player.getInventory().remove(new ItemStack(Material.GOLD_INGOT, gold));

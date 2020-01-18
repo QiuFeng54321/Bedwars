@@ -1,10 +1,12 @@
 shops:
   normal:
-    use:
-      type: BOOK
-      name: Shop
-      lore:
-        - Right click while holding this to open the shop!
+    activate_methods:
+      - type: item
+        data:
+          type: BOOK
+          name: Shop
+          lore:
+            - Right click while holding this to open the shop!
     groups:
       weapons:
         shownas:
@@ -19,14 +21,15 @@ shops:
               name: Stone Sword
               lore:
                 - 10 irons
+              slot: 0
             cost:
               iron: 10
-           gives:
+            gives:
               type: STONE_SWORD
               amount: 1
 maps:
   Cubic:
-    worldname: BedwarsCubic
+    world: BedwarsCubic
     useshop: normal
     teams:
       red:

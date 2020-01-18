@@ -15,30 +15,15 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.qiufeng.bedwars;
+package com.qiufeng.bedwars.util;
 
-import com.qiufeng.bedwars.config.BWConfiguration;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Location;
+import org.bukkit.World;
 
-public class BWPlugin extends JavaPlugin {
-    BWConfiguration configuration;
+import java.util.List;
 
-    public BWConfiguration getConfiguration() {
-        return configuration;
-    }
-
-    public void setConfiguration(BWConfiguration configuration) {
-        this.configuration = configuration;
-    }
-
-    @Override
-    public void onEnable() {
-        configuration = BWConfiguration.load(getConfig());
-        getLogger().info("Bedwars enabled!");
-    }
-
-    @Override
-    public void onDisable() {
-        getLogger().info("Bedwars disabled!");
+public class Position {
+    public static Location getLocation(World world, List<Integer> list) {
+        return new Location(world, list.get(0), list.get(1), list.get(2));
     }
 }

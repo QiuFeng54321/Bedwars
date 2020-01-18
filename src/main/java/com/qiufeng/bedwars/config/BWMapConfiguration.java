@@ -17,27 +17,35 @@
 
 package com.qiufeng.bedwars.config;
 
-import com.qiufeng.bedwars.shop.Shop;
+import com.qiufeng.bedwars.map.BWMap;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class BWShopConfiguration {
+public class BWMapConfiguration {
+    Map<String, BWMap> maps;
     BWConfiguration configuration;
-    Map<String, Shop> shops;
 
-    public static BWShopConfiguration load(BWConfiguration configuration, ConfigurationSection section) {
-        BWShopConfiguration res = new BWShopConfiguration();
+    public static BWMapConfiguration load(BWConfiguration configuration, ConfigurationSection section) {
+        BWMapConfiguration res = new BWMapConfiguration();
         res.setConfiguration(configuration);
-        res.shops = new HashMap<>();
+        res.maps = new HashMap<>();
         for (String key : section.getKeys(false)) {
-            ConfigurationSection shopSec = section.getConfigurationSection(key);
-            assert shopSec != null;
-            Shop shop = Shop.fromConfig(res, key, shopSec);
-            res.shops.put(key, shop);
+            ConfigurationSection mapSec = section.getConfigurationSection(key);
+            assert mapSec != null;
+            BWMap map = BWMap.fromConfig(res, key, mapSec);
+            res.maps.put(key, map);
         }
         return res;
+    }
+
+    public Map<String, BWMap> getMaps() {
+        return maps;
+    }
+
+    public void setMaps(Map<String, BWMap> maps) {
+        this.maps = maps;
     }
 
     public BWConfiguration getConfiguration() {
@@ -46,13 +54,5 @@ public class BWShopConfiguration {
 
     public void setConfiguration(BWConfiguration configuration) {
         this.configuration = configuration;
-    }
-
-    public Map<String, Shop> getShops() {
-        return shops;
-    }
-
-    public void setShops(Map<String, Shop> shops) {
-        this.shops = shops;
     }
 }
