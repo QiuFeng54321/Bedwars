@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="MenuInv">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../MenuInv/out/artifacts/MenuInv_jar/MenuInv.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

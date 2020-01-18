@@ -1,0 +1,51 @@
+shops:
+  normal:
+    use:
+      type: BOOK
+      name: Shop
+      lore:
+        - Right click while holding this to open the shop!
+    groups:
+      weapons:
+        shownas:
+          type: DIAMOND_SWORD
+          name: Weapons
+          lore:
+            - Buy weapons
+          slot: 0
+        items:
+          - shownas:
+              type: STONE_SWORD
+              name: Stone Sword
+              lore:
+                - 10 irons
+            cost:
+              iron: 10
+           gives:
+              type: STONE_SWORD
+              amount: 1
+maps:
+  Cubic:
+    worldname: BedwarsCubic
+    useshop: normal
+    teams:
+      red:
+        spawn: [290, 66, 28]
+        bed:
+          foot: [283, 66, 28]
+          head: [284, 66, 28]
+      blue:
+        spawn: [228, 66, 33]
+        bed:
+          foot: [228, 66, 26]
+          head: [228, 66, 27]
+      yellow:
+        spawn: [223, 66, -28]
+        bed:
+          foot: [230, 66, -28]
+          head: [229, 66, -28]
+      green:
+        spawn: [284, 66, -34]
+        bed:
+          foot: [284, 66, -26]
+          head: [284, 66, -27]
