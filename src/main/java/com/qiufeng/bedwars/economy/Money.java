@@ -22,6 +22,8 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Map;
+
 public class Money {
     int iron = 0, gold = 0, emerald = 0, diamond = 0;
 
@@ -78,13 +80,33 @@ public class Money {
                 diamond - toRemove.diamond);
     }
 
-
+    /**
+     * Gets money from a config section
+     *
+     * @param section the section
+     * @return money got
+     */
     public static Money getMoney(ConfigurationSection section) {
         return new Money(
                 section.getInt("iron", 0),
                 section.getInt("gold", 0),
                 section.getInt("emerald", 0),
                 section.getInt("diamond", 0)
+        );
+    }
+
+    /**
+     * Gets money from a config section
+     *
+     * @param section the section
+     * @return money got
+     */
+    public static Money getMoney(Map<String, Integer> section) {
+        return new Money(
+                section.getOrDefault("iron", 0),
+                section.getOrDefault("gold", 0),
+                section.getOrDefault("emerald", 0),
+                section.getOrDefault("diamond", 0)
         );
     }
 
@@ -100,8 +122,19 @@ public class Money {
         player.getInventory().remove(new ItemStack(Material.DIAMOND, diamond));
     }
 
+    @Override
+    public String toString() {
+        return "Money{" +
+                "iron=" + iron +
+                ", gold=" + gold +
+                ", emerald=" + emerald +
+                ", diamond=" + diamond +
+                '}';
+    }
+
     /**
      * Simply clones the money
+     *
      * @return cloned Money object
      */
     protected Money cloneMoney() {

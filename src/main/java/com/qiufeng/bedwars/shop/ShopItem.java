@@ -19,9 +19,10 @@ package com.qiufeng.bedwars.shop;
 
 import com.qiufeng.bedwars.economy.Money;
 import com.qiufeng.bedwars.util.ItemFactory;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.Map;
 
 public class ShopItem {
     private ShopGroup group;
@@ -45,13 +46,13 @@ public class ShopItem {
      * @param section the configuration section
      * @return shop item
      */
-    public static ShopItem fromConfig(ShopGroup group, ConfigurationSection section) {
-        ConfigurationSection shownAsSec = section.getConfigurationSection("shownas");
-        ConfigurationSection givesSec = section.getConfigurationSection("gives");
-        ConfigurationSection costSec = section.getConfigurationSection("cost");
+    public static ShopItem fromConfig(ShopGroup group, Map<String, Object> section) {
+        Map<String, Object> shownAsSec = (Map<String, Object>) section.get("shownas");
+        Map<String, Object> givesSec = (Map<String, Object>) section.get("gives");
+        Map<String, Integer> costSec = (Map<String, Integer>) section.get("cost");
         assert shownAsSec != null;
         ItemStack shownAs = ItemFactory.getItemStack(shownAsSec);
-        int slot = shownAsSec.getInt("slot");
+        int slot = (int) shownAsSec.get("slot");
         assert givesSec != null;
         ItemStack gives = ItemFactory.getItemStack(givesSec);
         assert costSec != null;
@@ -74,5 +75,15 @@ public class ShopItem {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "ShopItem{" +
+                "slot=" + slot +
+                ", shownAs=" + shownAs +
+                ", gives=" + gives +
+                ", cost=" + cost +
+                '}';
     }
 }

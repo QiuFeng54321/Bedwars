@@ -1,6 +1,6 @@
 shops:
   normal:
-    activate_methods:
+    actmethods:
       - type: item
         data:
           type: BOOK
@@ -31,6 +31,17 @@ maps:
   Cubic:
     world: BedwarsCubic
     useshop: normal
+    lobby: [0, 64, 0]
+    states:
+      game-started:
+        objective: BWCInfo
+        player: GameStarted
+      emerald-generation:
+        objective: BWCInfo
+        player: EmeraldGeneration
+      diamond-generation:
+        objective: BWCInfo
+        player: DiamondGeneration
     teams:
       red:
         spawn: [290, 66, 28]

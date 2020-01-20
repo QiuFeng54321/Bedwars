@@ -37,6 +37,16 @@ public class BWTeam {
         return team;
     }
 
+    @Override
+    public String toString() {
+        return "BWTeam{" +
+                "name='" + name + '\'' +
+                ", spawn=" + spawn +
+                ", bed_foot=" + bed_foot +
+                ", bed_head=" + bed_head +
+                '}';
+    }
+
     public BWMap getMap() {
         return map;
     }

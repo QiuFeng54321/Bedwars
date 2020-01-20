@@ -1,3 +1,4 @@
 name: Bedwars
 main: com.qiufeng.bedwars.BWPlugin
 version: 1.0-SNAPSHOT
+depend: ['Multiverse-Core']

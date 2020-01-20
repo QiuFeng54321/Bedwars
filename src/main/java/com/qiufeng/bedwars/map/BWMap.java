@@ -18,11 +18,15 @@
 package com.qiufeng.bedwars.map;
 
 import com.qiufeng.bedwars.config.BWMapConfiguration;
+import com.qiufeng.bedwars.scoreboard.GameStates;
 import com.qiufeng.bedwars.shop.Shop;
+import com.qiufeng.bedwars.util.Position;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -31,17 +35,49 @@ public class BWMap {
     String name;
     World world;
     Shop shop;
+    Location lobby;
+    GameStates states;
     Map<String, BWTeam> teams;
 
     public static BWMap fromConfig(BWMapConfiguration configuration, String name, ConfigurationSection section) {
         BWMap map = new BWMap();
+        var teamsSec = section.getConfigurationSection("teams");
         map.setMapConfiguration(configuration);
         map.setName(name);
         map.setWorld(Bukkit.getWorld(Objects.requireNonNull(section.getString("world"))));
+        map.setLobby(Position.getLocation(map.getWorld(), section.getIntegerList("lobby")));
         map.setShop(configuration.getConfiguration().getShopConfiguration().getShops().get(
                 section.getString("useshop")
         ));
+        map.setTeams(new HashMap<>());
+        map.setStates(GameStates.fromConfig(map, Objects.requireNonNull(section.getConfigurationSection("states"))));
+        assert teamsSec != null;
+        for (String key : teamsSec.getKeys(false)) {
+            ConfigurationSection teamSec = teamsSec.getConfigurationSection(key);
+            assert teamSec != null;
+            map.teams.put(key, BWTeam.fromConfig(map, key, teamSec));
+        }
         return map;
+    }
+
+    @Override
+    public String toString() {
+        return "BWMap{" +
+                "name='" + name + '\'' +
+                ", world=" + world +
+                ", shop=" + shop +
+                ", lobby=" + lobby +
+                ", states=" + states +
+                ", teams=" + teams +
+                '}';
+    }
+
+    public GameStates getStates() {
+        return states;
+    }
+
+    public void setStates(GameStates states) {
+        this.states = states;
     }
 
     public BWMapConfiguration getMapConfiguration() {
@@ -74,6 +110,14 @@ public class BWMap {
 
     public void setShop(Shop shop) {
         this.shop = shop;
+    }
+
+    public Location getLobby() {
+        return lobby;
+    }
+
+    public void setLobby(Location lobby) {
+        this.lobby = lobby;
     }
 
     public Map<String, BWTeam> getTeams() {

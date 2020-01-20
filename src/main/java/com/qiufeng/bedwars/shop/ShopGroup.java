@@ -21,7 +21,9 @@ import com.qiufeng.bedwars.util.ItemFactory;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ShopGroup {
     String name;
@@ -41,21 +43,32 @@ public class ShopGroup {
         ShopGroup shopGroup = new ShopGroup();
         shopGroup.name = name;
         shopGroup.shop = shop;
+        shopGroup.setItems(new ArrayList<>());
         ConfigurationSection shownAsSec = section.getConfigurationSection("shownas");
-        ConfigurationSection itemsSec = section.getConfigurationSection("itemsSec");
+        List<Map<?, ?>> itemsSec = section.getMapList("items");
+
+        shopGroup.getShop().getParent().getConfiguration().getPlugin().getLogger().info(itemsSec.toString());
 
         assert shownAsSec != null;
         shopGroup.shownAs = ItemFactory.getItemStack(shownAsSec);
         shopGroup.slot = shownAsSec.getInt("slot");
 
-        assert itemsSec != null;
-        for (String key : itemsSec.getKeys(false)) {
-            ConfigurationSection itemSec = itemsSec.getConfigurationSection(key);
+        for (Map<?, ?> itemSec : itemsSec) {
             assert itemSec != null;
-            shopGroup.items.add(ShopItem.fromConfig(shopGroup, itemSec));
+            shopGroup.items.add(ShopItem.fromConfig(shopGroup, (Map<String, Object>) itemSec));
         }
 
         return shopGroup;
+    }
+
+    @Override
+    public String toString() {
+        return "ShopGroup{" +
+                "name='" + name + '\'' +
+                ", shownAs=" + shownAs +
+                ", slot=" + slot +
+                ", items=" + items +
+                '}';
     }
 
     public Shop getShop() {

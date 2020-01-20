@@ -34,10 +34,18 @@ public class BWShopConfiguration {
         for (String key : section.getKeys(false)) {
             ConfigurationSection shopSec = section.getConfigurationSection(key);
             assert shopSec != null;
+            res.getConfiguration().getPlugin().getLogger().info(shopSec.getValues(true).toString());
             Shop shop = Shop.fromConfig(res, key, shopSec);
             res.shops.put(key, shop);
         }
         return res;
+    }
+
+    @Override
+    public String toString() {
+        return "BWShopConfiguration{" +
+                "shops=" + shops +
+                '}';
     }
 
     public BWConfiguration getConfiguration() {

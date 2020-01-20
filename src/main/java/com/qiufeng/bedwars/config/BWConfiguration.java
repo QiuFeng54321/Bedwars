@@ -17,16 +17,19 @@
 
 package com.qiufeng.bedwars.config;
 
+import com.qiufeng.bedwars.BWPlugin;
 import org.bukkit.configuration.Configuration;
 
 import java.util.Objects;
 
 public class BWConfiguration {
+    BWPlugin plugin;
     BWMapConfiguration mapConfiguration;
     BWShopConfiguration shopConfiguration;
 
-    public static BWConfiguration load(Configuration configuration) {
+    public static BWConfiguration load(BWPlugin plugin, Configuration configuration) {
         BWConfiguration bwConfiguration = new BWConfiguration();
+        bwConfiguration.setPlugin(plugin);
         bwConfiguration.setShopConfiguration(BWShopConfiguration.load(
                 bwConfiguration,
                 Objects.requireNonNull(configuration.getConfigurationSection("shops"))
@@ -36,6 +39,22 @@ public class BWConfiguration {
                 Objects.requireNonNull(configuration.getConfigurationSection("maps"))
         ));
         return bwConfiguration;
+    }
+
+    @Override
+    public String toString() {
+        return "BWConfiguration{" +
+                "mapConfiguration=" + mapConfiguration +
+                ", shopConfiguration=" + shopConfiguration +
+                '}';
+    }
+
+    public BWPlugin getPlugin() {
+        return plugin;
+    }
+
+    public void setPlugin(BWPlugin plugin) {
+        this.plugin = plugin;
     }
 
     public BWMapConfiguration getMapConfiguration() {

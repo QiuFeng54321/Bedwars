@@ -17,6 +17,7 @@
 
 package com.qiufeng.bedwars.shop.activate;
 
+import com.qiufeng.bedwars.BWPlugin;
 import org.bukkit.event.Event;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -25,9 +26,11 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Objects;
 
 public class ItemActivateMethod implements ActivateMethod {
+    BWPlugin plugin;
     ItemStack itemStack;
 
-    public ItemActivateMethod(ItemStack itemStack) {
+    public ItemActivateMethod(BWPlugin plugin, ItemStack itemStack) {
+        this.plugin = plugin;
         this.itemStack = itemStack;
     }
 
@@ -40,5 +43,12 @@ public class ItemActivateMethod implements ActivateMethod {
             }
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemActivateMethod{" +
+                "itemStack=" + itemStack +
+                '}';
     }
 }

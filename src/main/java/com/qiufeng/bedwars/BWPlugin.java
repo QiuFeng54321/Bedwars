@@ -33,7 +33,11 @@ public class BWPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        configuration = BWConfiguration.load(getConfig());
+        saveDefaultConfig();
+        getConfig().options().copyDefaults(true);
+        saveConfig();
+        configuration = BWConfiguration.load(this, getConfig());
+        getLogger().info(configuration.toString());
         getLogger().info("Bedwars enabled!");
     }
 

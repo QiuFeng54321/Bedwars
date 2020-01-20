@@ -40,22 +40,21 @@ public class Shop {
         shop.setName(name);
         shop.activateMethod = new ArrayList<>();
         shop.groups = new HashMap<>();
-        ConfigurationSection activateMethodsSec = section.getConfigurationSection("activate_methods");
+        shop.getParent().getConfiguration().getPlugin().getLogger().info(section.getValues(true).toString());
+        List<Map<?, ?>> activateMethodsSec = section.getMapList("actmethods");
         ConfigurationSection groupsSec = section.getConfigurationSection("groups");
-        assert activateMethodsSec != null;
-        for (String key : activateMethodsSec.getKeys(false)) {
-            ConfigurationSection activateMethodSec = activateMethodsSec.getConfigurationSection(key);
+        shop.getParent().getConfiguration().getPlugin().getLogger().info(groupsSec.toString());
+        for (Map<?, ?> activateMethodSec : activateMethodsSec) {
             assert activateMethodSec != null;
-            ConfigurationSection dataSec = activateMethodSec.getConfigurationSection("data");
-            String type = activateMethodSec.getString("type");
+            Map<?, ?> dataSec = (Map<?, ?>) activateMethodSec.get("data");
+            String type = (String) activateMethodSec.get("type");
             assert type != null;
             if (type.equals("item")) {
                 assert dataSec != null;
-                ItemActivateMethod method = new ItemActivateMethod(ItemFactory.getItemStack(dataSec));
+                ItemActivateMethod method = new ItemActivateMethod(parent.getConfiguration().getPlugin(), ItemFactory.getItemStack((Map<String, Object>) dataSec));
                 shop.activateMethod.add(method);
             }
         }
-        assert groupsSec != null;
         for (String key : groupsSec.getKeys(false)) {
             ConfigurationSection groupSec = groupsSec.getConfigurationSection(key);
             assert groupSec != null;
@@ -63,6 +62,15 @@ public class Shop {
             shop.groups.put(key, shopGroup);
         }
         return shop;
+    }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "name='" + name + '\'' +
+                ", activateMethod=" + activateMethod +
+                ", groups=" + groups +
+                '}';
     }
 
     public String getName() {

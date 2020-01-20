@@ -40,6 +40,13 @@ public class BWMapConfiguration {
         return res;
     }
 
+    @Override
+    public String toString() {
+        return "BWMapConfiguration{" +
+                "maps=" + maps +
+                '}';
+    }
+
     public Map<String, BWMap> getMaps() {
         return maps;
     }
