@@ -15,10 +15,24 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.qiufeng.bedwars.game;
+package com.qiufeng.bedwars.shop.activate;
 
-import org.bukkit.scoreboard.Score;
+import com.qiufeng.bedwars.BWPlugin;
+import org.bukkit.entity.Entity;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 
-public class State {
-    Score score;
+public class EntityActivateMethod implements ActivateMethod<PlayerInteractEntityEvent> {
+    BWPlugin plugin;
+    Entity entity;
+
+    public EntityActivateMethod(BWPlugin plugin, Entity entity) {
+        this.plugin = plugin;
+        this.entity = entity;
+    }
+
+    @Override
+    public boolean needActivate(PlayerInteractEntityEvent event) {
+        Entity ent = event.getRightClicked();
+        return ent.equals(entity);
+    }
 }

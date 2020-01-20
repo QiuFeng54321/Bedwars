@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class Shop {
     String name;
-    List<ActivateMethod> activateMethod;
+    List<ActivateMethod<?>> activateMethod;
     Map<String, ShopGroup> groups;
     BWShopConfiguration parent;
 
@@ -43,6 +43,7 @@ public class Shop {
         shop.getParent().getConfiguration().getPlugin().getLogger().info(section.getValues(true).toString());
         List<Map<?, ?>> activateMethodsSec = section.getMapList("actmethods");
         ConfigurationSection groupsSec = section.getConfigurationSection("groups");
+        assert groupsSec != null;
         shop.getParent().getConfiguration().getPlugin().getLogger().info(groupsSec.toString());
         for (Map<?, ?> activateMethodSec : activateMethodsSec) {
             assert activateMethodSec != null;
@@ -81,11 +82,11 @@ public class Shop {
         this.name = name;
     }
 
-    public List<ActivateMethod> getActivateMethod() {
+    public List<ActivateMethod<?>> getActivateMethod() {
         return activateMethod;
     }
 
-    public void setActivateMethod(List<ActivateMethod> activateMethod) {
+    public void setActivateMethod(List<ActivateMethod<?>> activateMethod) {
         this.activateMethod = activateMethod;
     }
 

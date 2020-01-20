@@ -18,14 +18,13 @@
 package com.qiufeng.bedwars.shop.activate;
 
 import com.qiufeng.bedwars.BWPlugin;
-import org.bukkit.event.Event;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Objects;
 
-public class ItemActivateMethod implements ActivateMethod {
+public class ItemActivateMethod implements ActivateMethod<PlayerInteractEvent> {
     BWPlugin plugin;
     ItemStack itemStack;
 
@@ -35,12 +34,10 @@ public class ItemActivateMethod implements ActivateMethod {
     }
 
     @Override
-    public boolean needActivate(Event event) {
-        if (event instanceof PlayerInteractEvent) {
-            PlayerInteractEvent interactEvent = (PlayerInteractEvent) event;
-            if (Objects.equals(interactEvent.getItem(), itemStack)) {
-                return interactEvent.getAction() == Action.RIGHT_CLICK_AIR || interactEvent.getAction() == Action.RIGHT_CLICK_BLOCK;
-            }
+    public boolean needActivate(PlayerInteractEvent event) {
+        if (Objects.equals(event.getItem(), itemStack)) {
+            //TODO only return true when in game
+            return event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK;
         }
         return false;
     }
