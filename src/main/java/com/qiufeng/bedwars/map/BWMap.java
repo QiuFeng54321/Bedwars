@@ -50,13 +50,13 @@ public class BWMap {
                 section.getString("useshop")
         ));
         map.setTeams(new HashMap<>());
-        map.setStates(GameStates.fromConfig(map, Objects.requireNonNull(section.getConfigurationSection("states"))));
         assert teamsSec != null;
         for (String key : teamsSec.getKeys(false)) {
             ConfigurationSection teamSec = teamsSec.getConfigurationSection(key);
             assert teamSec != null;
             map.teams.put(key, BWTeam.fromConfig(map, key, teamSec));
         }
+        map.setStates(GameStates.fromConfig(map, Objects.requireNonNull(section.getConfigurationSection("states"))));
         return map;
     }
 
